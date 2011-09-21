@@ -1,10 +1,11 @@
 require 'sinatra'
 require 'json'
 require 'open-uri'
+require 'uri'
 
 helpers do
   def get_image_for(thing)
-    body = JSON.parse(open("http://ajax.googleapis.com/ajax/services/search/images?v=1.0&rsz=8&safe=active&q=#{thing}").read)
+    body = JSON.parse(open("http://ajax.googleapis.com/ajax/services/search/images?v=1.0&rsz=8&safe=active&q=#{URI.escape thing}").read)
     images = body['responseData']['results']
     image  = images[ rand * images.length ]
     image['unescapedUrl']
