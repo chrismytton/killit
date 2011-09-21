@@ -1,6 +1,4 @@
-<div class="killit">
-  <span>Kill</span>
-  <img src="<%= @target %>" />
-  <span>with</span>
-  <img src="<%= @weapon %>" />
-</div>
+Kill <span><img src="<%= @target %>" /></span> with <span><img src="<%= @weapon %>" /></span><br /><br /><br />
+<form method="post">
+  Kill <input type="text" name="target" placeholder="something" /> with <input type="text" name="weapon" placeholder="something else" /> <button type="submit">Attack!</button>
+</form>

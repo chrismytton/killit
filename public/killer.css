@@ -1,0 +1,26 @@
+body, input, button {
+	font-family: "Times New Roman", serif;
+	font-size: 45px;
+}
+
+span {
+	display: inline-block;
+	min-width: 20px;
+	min-height: 20px;
+	background: url(/loading-shotgun.gif) no-repeat;
+}
+
+img {
+	max-width: 300px;
+	max-height: 300px;
+}
+
+#credit {
+	font-size: 14px;
+	margin-top: 120px;
+}
+
+:-moz-placeholder {color: #ccc;}
+::-webkit-input-placeholder {color: #ccc;}
+:placeholder {color: #ccc;}
+
