@@ -1,7 +1,4 @@
-require 'sinatra'
-require 'json'
-require 'open-uri'
-require 'uri'
+%w{sinatra json open-uri uri}.each { |lib| require lib }
 
 helpers do
   def get_image_for(thing)
