@@ -19,9 +19,9 @@ post '/' do
   redirect to("/kill/#{params[:target]}/with/#{params[:weapon]}")
 end
 
-get '/kill/:target/with/:weapon' do |target, weapon|
-  @target = get_image_for target
-  @weapon = get_image_for weapon
+get '/kill/:target/with/:weapon' do
+  @target = get_image_for current_target
+  @weapon = get_image_for current_weapon
   erb :kill
 end
 
