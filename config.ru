@@ -7,6 +7,8 @@ helpers do
     image  = images[ rand * images.length ]
     image['unescapedUrl']
   end
+  def current_target; params[:target] || 'x' end
+  def current_weapon; params[:weapon] || 'y' end
 end
 
 get '/' do
