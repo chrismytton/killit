@@ -1,7 +1,4 @@
-require 'sinatra'
-require 'json'
-require 'open-uri'
-require 'uri'
+%w{sinatra json open-uri uri}.each { |lib| require lib }
 
 helpers do
   def get_image_for(thing)
@@ -10,6 +7,8 @@ helpers do
     image  = images[ rand * images.length ]
     image['unescapedUrl']
   end
+  def current_target; params[:target] || 'x' end
+  def current_weapon; params[:weapon] || 'y' end
 end
 
 get '/' do
@@ -20,9 +19,9 @@ post '/' do
   redirect to("/kill/#{params[:target]}/with/#{params[:weapon]}")
 end
 
-get '/kill/:target/with/:weapon' do |target, weapon|
-  @target = get_image_for target
-  @weapon = get_image_for weapon
+get '/kill/:target/with/:weapon' do
+  @target = get_image_for current_target
+  @weapon = get_image_for current_weapon
   erb :kill
 end
 
